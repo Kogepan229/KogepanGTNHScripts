@@ -15,20 +15,20 @@ local side_tr_fluid_src = sides.north
 local side_tr_fluid_dest = sides.south
 
 local materials = {
-  [0] = { [0] = "Tiny Pile of Awakened Draconium Dust", [1] = "Awakened Draconium Plasma" },
-  [1] = { [0] = "Tiny Pile of Ichorium Dust", [1] = "Ichorium Plasma" },
-  [2] = { [0] = "Tiny Pile of Draconium Dust", [1] = "Draconium Plasma" },
-  [3] = { [0] = "Tiny Pile of Neutronium Dust", [1] = "Neutronium Plasma" },
-  [4] = { [0] = "Tiny Pile of Celestial Tungsten Dust", [1] = "Celestial Tungsten Plasma" },
-  [5] = { [0] = "Tiny Pile of Infinity Dust", [1] = "Infinity Plasma" },
-  [6] = { [0] = "Tiny Pile of Bedrockium Dust", [1] = "Bedrockium Plasma" },
-  [7] = { [0] = "Tiny Pile of Flerovium Dust", [1] = "Flerovium Plasma" },
-  [8] = { [0] = "Tiny Pile of Cosmic Neutronium Dust", [1] = "Cosmic Neutronium Plasma" },
-  [9] = { [0] = "Tiny Pile of Six-Phased Copper Dust", [1] = "Six-Phased Copper Plasma" },
-  [10] = { [0] = "Tiny Pile of Chromatic Glass Dust", [1] = "Chromatic Glass Plasma" },
-  [11] = { [0] = "Tiny Pile of Rhugnor Dust", [1] = "Rhugnor Plasma" },
-  [12] = { [0] = "Tiny Pile of Dragonblood Dust", [1] = "Dragonblood Plasma" },
-  [13] = { [0] = "Tiny Pile of Hypogen Dust", [1] = "Hypogen Plasma" },
+  [0] = { [0] = "Cosmic Neutronium Dust", [1] = "Cosmic Neutronium Plasma" },
+  [1] = { [0] = "Awakened Draconium Dust", [1] = "Awakened Draconium Plasma" },
+  [2] = { [0] = "Bedrockium Dust", [1] = "Bedrockium Plasma" },
+  [3] = { [0] = "Neutronium Dust", [1] = "Neutronium Plasma" },
+  [4] = { [0] = "Dragonblood Dust", [1] = "Dragonblood Plasma" },
+  [5] = { [0] = "Rhugnor Dust", [1] = "Rhugnor Plasma" },
+  [6] = { [0] = "Tritanium Dust", [1] = "Tritanium Plasma" },
+  [7] = { [0] = "Celestial Tungsten Dust", [1] = "Celestial Tungsten Plasma" },
+  [8] = { [0] = "Infinity Dust", [1] = "Infinity Plasma" },
+  [9] = { [0] = "Hypogen Dust", [1] = "Hypogen Plasma" },
+  [10] = { [0] = "Draconium Dust", [1] = "Draconium Plasma" },
+  [11] = { [0] = "Chromatic Glass Dust", [1] = "Chromatic Glass Plasma" },
+  [12] = { [0] = "Ichorium Dust", [1] = "Ichorium Plasma" },
+  [13] = { [0] = "Flerovium Dust", [1] = "Flerovium Plasma" },
 }
 
 local function regist_craftables()
