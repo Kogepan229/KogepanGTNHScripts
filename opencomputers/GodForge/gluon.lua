@@ -61,6 +61,7 @@ local function calcPlasma()
 
   local items = controller_storage.getItemsInNetwork({})
   for i, item in ipairs(items) do
+    print(item.label .. " " .. item.size)
     local plasmaName = string.gsub(item.label, "Dust", "Plasma")
     local plasmaAmount = item.size * 144 * 9
     table.insert(plasmaList, { name = plasmaName, amount = plasmaAmount })
@@ -68,6 +69,7 @@ local function calcPlasma()
 
   local fluids = controller_storage.getFluidsInNetwork()
   for i, fluid in ipairs(fluids) do
+    print(fluid.label .. " " .. fluid.amount)
     local plasmaName = string.gsub(fluid.label, " Gas", "") .. " Plasma"
     local plasmaAmount = fluid.amount * 1000
     table.insert(plasmaList, { name = plasmaName, amount = plasmaAmount })
@@ -110,7 +112,7 @@ local function cycle()
 end
 
 local function check_exists()
-  return getContainedTypeNum() > 0
+  return getContainedTypeNum() == 7
 end
 
 
