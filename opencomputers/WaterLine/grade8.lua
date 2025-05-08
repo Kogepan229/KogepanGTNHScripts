@@ -3,6 +3,8 @@ local sides = require("sides")
 local invoke = component.invoke
 
 local rs_machine = "98544c4d-7656-4904-8c1c-aa60a5276058" --マシンのアクティブ信号
+local rs_matter = component.proxy("4ad0cf5c-48c4-4a61-af83-a6e73fd5aa3c", "redstone")
+
 local tr_quark_up = "bfeaf30c-4e11-4b40-b65b-1ea44ee32873"
 local tr_quark_down = "8b5f02d6-316e-4384-b2d3-9d91379d24ab"
 local tr_quark_strange = "e43c0571-dbc6-41af-834e-8a1a9b203714"
@@ -13,8 +15,10 @@ local tr_infinity = "ea8b706b-14f4-42f2-9950-94713911cd61"
 local tr_matter = "932002cc-f2aa-404b-97b8-6c0859efceb1"
 
 local side_rs_machine = sides.north
+local side_rs_matter = sides.east
 local side_tr_src = sides.south
 local side_tr_dest = sides.north
+local side_tr_matter = sides.up
 
 local up = "up"
 local down = "down"
@@ -79,24 +83,25 @@ local function insert_quark(quark)
 end
 
 local function check_matter()
-    return invoke(tr_matter, "getTankLevel", side_tr_src, 1)
+    return invoke(tr_matter, "getTankLevel", side_tr_matter, 1)
 end
 
 local function transfer_matter()
-    local amount = check_matter()
-    if amount <= 0 then
-        return
+    rs_matter.setOutput(side_rs_matter, 15)
+    while check_matter() > 0 do
+        os.sleep(1)
     end
-    local success, value = invoke(tr_matter, "transferFluid", side_tr_src, side_tr_dest, amount)
-    if success == false then
-        print("Failed to transfer matter")
-    end
+    rs_matter.setOutput(side_rs_matter, 0)
 end
 
 local function cycle()
+    print("Start a cycle")
     init_infinity()
+    print("infinity")
     transfer_matter()
+    print("matter")
     for key, val in pairs(quark_order) do
+        print("insert")
         insert_quark(val[0])
         insert_quark(val[1])
         os.sleep(1.5) --- Wait 30 ticks
@@ -104,6 +109,7 @@ local function cycle()
             break
         end
     end
+    print("Finished a cycle")
 end
 
 print("Start Grade 8 Water Line System")
